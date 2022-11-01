@@ -19,9 +19,11 @@
     "@types/styled-components": "^5.1.26",
     "babel-plugin-styled-components": "^2.0.7",
     "gatsby": "^4.24.5",
+    "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-styled-components": "^5.24.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-helmet": "^6.1.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {

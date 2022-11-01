@@ -2,8 +2,11 @@ import * as React from "react";
 import type { HeadFC } from "gatsby";
 import styled from "styled-components";
 
+const StyledSpan = styled.span`
+  font-family: "Titan One", cursive;
+`;
 const IndexPage = () => {
-  return <span>Nimbus: Cloud Enabled Point-of-Sale</span>;
+  return <StyledSpan>Nimbus: Cloud Enabled Point-of-Sale</StyledSpan>;
 };
 
 export default IndexPage;
