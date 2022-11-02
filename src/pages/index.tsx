@@ -4,11 +4,14 @@ import styled from "styled-components";
 //@ts-ignore
 import elevatorPitch from "../images/NimbusElevatorPitch.png";
 
-const ImageWrapper = styled.div`
+import SignUpForm from "./SignUpForm";
+
+const AppWrapper = styled.div`
   width: 100%;
   height: 100%;
 
   display: flex;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
 
@@ -17,7 +20,6 @@ const ImageWrapper = styled.div`
 `;
 
 const ElevatorPitchImage = styled.img`
-  /* width: clamp(50%, 75%, 100%); */
   width: 75%;
 
   @media (max-width: 500px) {
@@ -26,9 +28,10 @@ const ElevatorPitchImage = styled.img`
 `;
 const IndexPage = () => {
   return (
-    <ImageWrapper>
+    <AppWrapper>
       <ElevatorPitchImage src={elevatorPitch} />
-    </ImageWrapper>
+      <SignUpForm />
+    </AppWrapper>
   );
 };
 
