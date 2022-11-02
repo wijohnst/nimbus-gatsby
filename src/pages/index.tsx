@@ -34,4 +34,6 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>Great service. From anywhere.</title>;
+export const Head: HeadFC = () => (
+  <title>Nimbus - Great service. From anywhere.</title>
+);
