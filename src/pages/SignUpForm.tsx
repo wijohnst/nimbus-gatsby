@@ -126,7 +126,7 @@ const SignUpForm = () => {
           isActive={isSubmitActive}
           onClick={() => handleEmailSubmit()}
         >
-          Sign Me Up
+          Tell Me More
         </SignUpButton>
       </ButtonWrapper>
     </FormWrapper>
