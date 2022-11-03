@@ -122,6 +122,7 @@ const SignUpForm = () => {
     >
       <EmailInput
         type="email"
+        name="Email"
         placeholder="Please enter your email address"
         // onChange={(event) => handleChange(event)}
       />
