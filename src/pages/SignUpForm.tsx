@@ -4,8 +4,7 @@ import styled from "styled-components";
 const emailRegex =
   /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-const FormWrapper = styled.div`
-  /* background-color: pink; */
+const FormWrapper = styled.form`
   display: flex;
   flex-flow: column nowrap;
   width: 50%;
@@ -81,7 +80,7 @@ const ErrorMessage = styled.span`
 
 const SignUpForm = () => {
   const [emailValue, setEmailValue] = React.useState<string>();
-  const [isSubmitActive, setIsSubmitActive] = React.useState<boolean>(false);
+  const [isSubmitActive, setIsSubmitActive] = React.useState<boolean>(true);
   const [emailHasError, setEmailHasError] = React.useState<boolean>(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -99,7 +98,10 @@ const SignUpForm = () => {
     }
   }, [emailValue]);
 
-  const handleEmailSubmit = (): void => {
+  const handleEmailSubmit = (
+    event: React.ChangeEvent<HTMLFormElement>
+  ): void => {
+    event.preventDefault();
     if (isSubmitActive && emailValue) {
       const isEmailValid: boolean = emailRegex.test(emailValue);
       if (isEmailValid) {
@@ -112,21 +114,25 @@ const SignUpForm = () => {
   };
 
   return (
-    <FormWrapper>
+    <FormWrapper
+      name="contact"
+      // onSubmit={handleEmailSubmit}
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
       <EmailInput
         type="email"
+        name="Email"
         placeholder="Please enter your email address"
-        onChange={(event) => handleChange(event)}
+        // onChange={(event) => handleChange(event)}
       />
       {emailHasError && (
         <ErrorMessage>Please enter a valid email address.</ErrorMessage>
       )}
       <ButtonWrapper>
-        <SignUpButton
-          isActive={isSubmitActive}
-          onClick={() => handleEmailSubmit()}
-        >
-          Tell Me More
+        <input type="hidden" name="form-name" value="contact" />
+        <SignUpButton isActive={isSubmitActive} type="submit">
+          Tell Me More!
         </SignUpButton>
       </ButtonWrapper>
     </FormWrapper>
