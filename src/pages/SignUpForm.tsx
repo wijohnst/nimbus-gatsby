@@ -129,6 +129,7 @@ const SignUpForm = () => {
         <ErrorMessage>Please enter a valid email address.</ErrorMessage>
       )}
       <ButtonWrapper>
+        <input type="hidden" name="form-name" value="contact" />
         <SignUpButton isActive={isSubmitActive} type="submit">
           Tell Me More!
         </SignUpButton>
