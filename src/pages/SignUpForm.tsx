@@ -130,7 +130,7 @@ const SignUpForm = () => {
       )}
       <ButtonWrapper>
         <SignUpButton isActive={isSubmitActive} type="submit">
-          Tell Me More
+          Tell Me More!
         </SignUpButton>
       </ButtonWrapper>
     </FormWrapper>
