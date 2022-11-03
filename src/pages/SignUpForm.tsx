@@ -4,8 +4,7 @@ import styled from "styled-components";
 const emailRegex =
   /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-const FormWrapper = styled.div`
-  /* background-color: pink; */
+const FormWrapper = styled.form`
   display: flex;
   flex-flow: column nowrap;
   width: 50%;
@@ -99,7 +98,10 @@ const SignUpForm = () => {
     }
   }, [emailValue]);
 
-  const handleEmailSubmit = (): void => {
+  const handleEmailSubmit = (
+    event: React.ChangeEvent<HTMLFormElement>
+  ): void => {
+    event.preventDefault();
     if (isSubmitActive && emailValue) {
       const isEmailValid: boolean = emailRegex.test(emailValue);
       if (isEmailValid) {
@@ -112,7 +114,12 @@ const SignUpForm = () => {
   };
 
   return (
-    <FormWrapper>
+    <FormWrapper
+      name="contact"
+      // onSubmit={handleEmailSubmit}
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
       <EmailInput
         type="email"
         placeholder="Please enter your email address"
@@ -122,10 +129,7 @@ const SignUpForm = () => {
         <ErrorMessage>Please enter a valid email address.</ErrorMessage>
       )}
       <ButtonWrapper>
-        <SignUpButton
-          isActive={isSubmitActive}
-          onClick={() => handleEmailSubmit()}
-        >
+        <SignUpButton isActive={isSubmitActive} type="submit">
           Tell Me More
         </SignUpButton>
       </ButtonWrapper>
