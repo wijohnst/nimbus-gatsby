@@ -123,7 +123,7 @@ const SignUpForm = () => {
       <EmailInput
         type="email"
         placeholder="Please enter your email address"
-        onChange={(event) => handleChange(event)}
+        // onChange={(event) => handleChange(event)}
       />
       {emailHasError && (
         <ErrorMessage>Please enter a valid email address.</ErrorMessage>
