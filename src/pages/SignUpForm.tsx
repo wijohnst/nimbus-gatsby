@@ -80,7 +80,7 @@ const ErrorMessage = styled.span`
 
 const SignUpForm = () => {
   const [emailValue, setEmailValue] = React.useState<string>();
-  const [isSubmitActive, setIsSubmitActive] = React.useState<boolean>(false);
+  const [isSubmitActive, setIsSubmitActive] = React.useState<boolean>(true);
   const [emailHasError, setEmailHasError] = React.useState<boolean>(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
